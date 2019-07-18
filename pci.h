@@ -15,9 +15,9 @@
 #ifndef SECURITY_ZYNAMICS_PAWN_PCI_H_
 #define SECURITY_ZYNAMICS_PAWN_PCI_H_
 
-#ifndef __linux__
-#error "Unsupported operating system."
-#endif
+//#ifndef __linux__ ||  __FreeBSD__
+//  #error "Unsupported operating system."
+//#endif
 
 #include <memory>
 

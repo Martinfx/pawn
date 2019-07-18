@@ -12,7 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-#include <sys/io.h>  // iopl(), inb(), inw(), inl(), outl()
+#ifdef __linux__
+  #include <sys/io.h>  // iopl(), inb(), inw(), inl(), outl()
+#elif __FreeBSD__
+  #include <sys/types.h>
+  #include <sys/cdefs.h>
+  #include <machine/cpufunc.h>
+#else
+   #error "Unsupported operation system."
+#endif
 
 #include "third_party/zynamics/pawn/mini_google.h"
 #include "third_party/zynamics/pawn/pci.h"
